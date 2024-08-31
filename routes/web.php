@@ -15,17 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [IndexController::class,'index'])->name('home');
+Route::get('/about', [IndexController::class,'about'])->name('about');
 
 Route::prefix('dashboard')->group(function(){
-
 Route::get('/',[HomeController::class,'index'])->name('dash');
-Route::get('/projects',[PostController::class,'index'])->name('projects');
+
+Route::resource('projects',PostController::class);
 
 });
 
-Route::prefix('portfolio')->group(function(){
-Route::get('/', [IndexController::class,'index'])->name('home');
-});
+

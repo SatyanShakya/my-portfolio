@@ -61,7 +61,7 @@
           <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="service-item item-cyan position-relative">
               <div class="icon">
-                <i class="bi bi-activity"></i>
+                <i class="fa-solid fa-info"></i>
               </div>
               <a href="service-details.html" class="stretched-link">
                 <h3>About</h3>
@@ -73,7 +73,8 @@
           <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="service-item item-orange position-relative">
               <div class="icon">
-                <i class="bi bi-broadcast"></i>
+                <i class="fa-solid fa-chalkboard-user"></i>
+
               </div>
               <a href="service-details.html" class="stretched-link">
                 <h3>Education</h3>
@@ -87,7 +88,7 @@
           <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div class="service-item item-teal position-relative">
               <div class="icon">
-                <i class="bi bi-easel"></i>
+                <i class="fa-solid fa-brain"></i>
               </div>
               <a href="service-details.html" class="stretched-link">
                 <h3>Skill</h3>
@@ -99,7 +100,7 @@
           <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
             <div class="service-item item-red position-relative">
               <div class="icon">
-                <i class="bi bi-bounding-box-circles"></i>
+                <i class="fa-solid fa-star-of-david"></i>
               </div>
               <a href="service-details.html" class="stretched-link">
                 <h3>Experience</h3>

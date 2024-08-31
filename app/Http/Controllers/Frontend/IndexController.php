@@ -10,4 +10,10 @@ class IndexController extends Controller
     public function index(){
         return view('Frontend.home');
     }
+
+    public function about(){
+        return view('Frontend.about');
+    }
+
+
 }
