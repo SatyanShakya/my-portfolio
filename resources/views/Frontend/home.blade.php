@@ -5,7 +5,7 @@
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
 
-      <!-- <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in"> -->
+   {{-- <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in"> --}}
 
       <div id="hero-carousel" class="carousel carousel-fade" data-bs-ride="carousel" data-bs-interval="8000">
 
@@ -13,8 +13,10 @@
 
           <div class="carousel-item active">
             <div class="carousel-container">
-              <h2>Welcome to MyPortfolio</h2>
-              <p>Hi, I’m Satyan, a Bachelor in Information Management (BIM) student from Lalitpur with a passion for IT and a knack for turning challenges into opportunities. My journey blends academic rigor with creative flair, from developing sleek web pages to diving deep into software development.</p>
+                <h2>Hey, I'm</h2>
+                <h2>Satyan Ratna Shakya</h2>
+              {{-- <h2>Welcome to MyPortfolio</h2> --}}
+              <p>A Bachelor in Information Management (BIM) student from Lalitpur with a passion for IT and a knack for turning challenges into opportunities. My journey blends academic rigor with creative flair, from developing sleek web pages to diving deep into software development.</p>
               <a href="#about" class="btn-get-started">Read More</a>
             </div>
           </div><!-- End Carousel Item -->

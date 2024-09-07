@@ -22,17 +22,21 @@ class PostController extends Controller
     public function store(Request $request){
         $request->validate([
             'name'=> 'required|string',
-            'tools'=>'required',
-            'summary'=>'required',
-            'description'=>'required',
-            'link' => 'nullable|url',
+            'tools'=>'required|string',
+            'summary'=>'required|string',
+            'description'=>'required|string',
+            'url' => 'nullable|url',
+            'icon_class'=> 'nullable|string',
         ]);
 
         $data=$request->all();
-        $project= Project::create($data);
-        $project->save();
 
-        return redirect('Backend.Project.index')->with("success","Project created successfully");
+        $data['icon_class'] = $request->input('icon_class', 'fa-regular fa-star');
+
+        Project::create($data);
+
+
+        return redirect()->route('projects.index')->with("success","Project created successfully");
 
 
     }

@@ -17,6 +17,7 @@ class Project extends Model
         'description',
         'url',
         'status',
+        'icon_class',
 
     ];
 }
