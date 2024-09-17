@@ -7,7 +7,7 @@
   <title>Satyan Portfolio</title>
 
   <!-- Favicons -->
-  {{-- <link href="{{ asset('frontend/img/favicon.png') }}" rel="icon"> --}}
+  <link href="{{ asset('frontend/img/computer.png') }}" rel="icon">
   {{-- <link href="{{ asset('frontend/img/apple-touch-icon.png') }}" rel="apple-touch-icon"> --}}
 
   <!-- Fonts -->
@@ -52,8 +52,8 @@
           <li><a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}" >Home</a></li>
           <li><a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'active' : '' }}">About</a></li>
           <li><a href="{{ route('projects') }}" class="{{ request()->routeIs('projects') ? 'active' : '' }}">Projects</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="{{ route('resume') }}" class="{{ request()->routeIs('resume') ? 'active' : '' }}">Resume</a></li>
+          <li><a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'active' : '' }}">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -85,9 +85,9 @@
           <h4>Links</h4>
           <ul>
             <li><i class="bi bi-chevron-right"></i> <a href="{{ route('home') }}">Home</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">About</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Projects</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Contact</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{{ route('about') }}">About</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{{ route('projects') }}">Projects</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="">Contact</a></li>
           </ul>
         </div>
 

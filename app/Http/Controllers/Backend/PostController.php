@@ -35,11 +35,39 @@ class PostController extends Controller
 
         Project::create($data);
 
-
         return redirect()->route('projects.index')->with("success","Project created successfully");
-
 
     }
 
+    public function edit($id){
+        $project=Project::findorFail($id);
+
+        return view('Backend.Projects.edit',compact('project'));
+    }
+
+    public function update(Request $request, $id){
+        $request->validate([
+            'name'=> 'required|string',
+            'tools'=>'required|string',
+            'summary'=>'required|string',
+            'description'=>'required|string',
+            'url' => 'nullable|url',
+            'icon_class'=> 'nullable|string',
+        ]);
+
+        $project = Project::findorFail($id);
+        $data= $request->all();
+        $data['icon_class'] = $request->input('icon_class', 'fa-regular fa-star');
+        $project->update($data);
+
+        return redirect()->route('projects.index')->with('success','Updated successfully');
+    }
+
+    public function destroy($id){
+        $project=Project::findorFail($id);
+        $project->delete();
+
+        return redirect()->route('projects.index')->with('success','Deleted Successfully');
+    }
 
 }

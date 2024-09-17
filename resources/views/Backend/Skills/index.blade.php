@@ -6,8 +6,8 @@
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="card-header pb-0 d-flex justify-content-between align-items-center">
-                        <h6 class="mb-0">Projects Table</h6>
-                        <a href="{{ route('projects.create') }}" class="btn btn-primary btn-sm">Create</a>
+                        <h6 class="mb-0">Skills Table</h6>
+                        <a href="{{ route('skills.create') }}" class="btn btn-primary btn-sm">Create</a>
                     </div>
 
                     <div class="card-body px-0 pt-0 pb-2">
@@ -29,61 +29,45 @@
                             <table class="table align-items-center mb-0">
                                 <thead>
                                     <tr>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
+                                            style="width: 10%;">
+                                            S.N</th>
                                         <th
                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                             Name</th>
                                         <th
                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Tools</th>
-                                        <th
-                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Summary</th>
-                                        <th
-                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Description</th>
-                                        <th
-                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Url</th>
-                                        <th
-                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Status</th>
+                                            Rate(%)</th>
                                         <th
                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                             Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($projects as $project)
+                                    @foreach ($skills as $skill)
                                         <tr>
                                             <td>
-                                                <p class="text-xs font-weight-bold mb-0">{{ $project->name }}</p>
+                                                <p class="text-xs font-weight-bold mb-0">{{ $loop->iteration }}</p>
 
                                             </td>
                                             <td>
-                                                <p class="text-xs font-weight-bold mb-0">{{ $project->tools }}</p>
+                                                <p class="text-xs font-weight-bold mb-0">{{ $skill->name }}</p>
                                             </td>
                                             <td>
-                                                <p class="text-xs font-weight-bold mb-0">{{ $project->summary }}</p>
+                                                <p class="text-xs font-weight-bold mb-0">{{ $skill->rate }}</p>
                                             </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">{{ $project->description }}</p>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">{{ $project->url }}</p>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">{{ $project->status }}</p>
-                                            </td>
+
                                             <td class="align-middle">
-                                                <a href="{{ route('projects.edit', $project->id) }}" class=" btn btn-info">
+                                                <a href="{{ route('skills.edit', $skill->id) }}" class=" btn btn-info">
                                                     Edit
                                                 </a>
 
-                                                <form method="POST" action="{{ route('projects.destroy', $project->id) }}" id="delete-form-{{ $project->id }}">
+                                                <form method="POST" action="{{ route('skills.destroy', $skill->id) }}"
+                                                    id="delete-form-{{ $skill->id }}">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="button" class="btn btn-danger"
-                                                        onclick="ShowAlert({{ $project->id }})">
+                                                        onclick="ShowAlert({{ $skill->id }})">
                                                         Delete
                                                     </button>
 
@@ -101,9 +85,10 @@
     </div>
 @endsection
 
+
 @section('js')
     <script>
-        function ShowAlert(projectId){
+        function ShowAlert(skillId) {
             Swal.fire({
                 title: "Delete?",
                 text: "Are you sure you want to delete this ?",
@@ -115,7 +100,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     // If user confirms, submit the form
-                    document.getElementById(`delete-form-${projectId}`).submit();
+                    document.getElementById(`delete-form-${skillId}`).submit();
                 }
             });
         }

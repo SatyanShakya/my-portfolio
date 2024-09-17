@@ -10,7 +10,7 @@
         {{-- <p>The below mentioned are my projects</p> --}}
         <nav class="breadcrumbs">
           <ol>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="{{ route('home') }}">Home</a></li>
             <li class="current">Projects</li>
           </ol>
         </nav>
