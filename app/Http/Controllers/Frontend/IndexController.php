@@ -11,34 +11,47 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('Frontend.home');
     }
 
-    public function about(){
-        $skills=Skills::all();
-        $achievements=Achievements::all();
-        return view('Frontend.about',compact('skills','achievements'));
+    public function about()
+    {
+        $skills = Skills::all();
+        $achievements = Achievements::all();
+        return view('Frontend.about', compact('skills', 'achievements'));
     }
 
-    public function project(){
+    public function project()
+    {
 
-        $projects=Project::latest()->get();
+        $projects = Project::latest()->get();
 
         return view('Frontend.projects', compact('projects'));
     }
 
-    public function resume(){
+    public function resume()
+    {
 
-        $resumes=Resume::latest()->get();
+        $resumes = Resume::latest()->get();
 
         return view('Frontend.resumes', compact('resumes'));
     }
 
 
-    public function contact(){
+    public function contact()
+    {
 
         return view('Frontend.contact');
     }
 
+    public function projectDetail($id)
+    {
+        $projects = Project::where('id', $id)->get();
+        if (!$projects) {
+            abort(404);
+        }
+        return view('Frontend.projectdetail', compact('projects'));
+    }
 }

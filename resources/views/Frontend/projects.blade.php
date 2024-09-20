@@ -31,7 +31,7 @@
               <div class="icon">
                 <i class="{{ $project->icon_class }}"></i>
               </div>
-              <a href="service-details.html" class="stretched-link">
+              <a href="{{ route('project.detail', $project->id) }}" class="stretched-link">
                 <h3>{{ $project->name }}</h3>
               </a>
               <p>{{ $project->description }}</p>

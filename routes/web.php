@@ -22,6 +22,7 @@ Auth::routes();
 Route::get('/', [IndexController::class,'index'])->name('home');
 Route::get('/about', [IndexController::class,'about'])->name('about');
 Route::get('/projects',[IndexController::class,'project'])->name('projects');
+Route::get('/detail/{id}',[IndexController::class,'projectDetail'])->name('project.detail');
 Route::get('/resume',[IndexController::class,'resume'])->name('resume');
 Route::get('/contact',[IndexController::class,'contact'])->name('contact');
 
