@@ -25,6 +25,7 @@ Route::get('/projects',[IndexController::class,'project'])->name('projects');
 Route::get('/detail/{id}',[IndexController::class,'projectDetail'])->name('project.detail');
 Route::get('/resume',[IndexController::class,'resume'])->name('resume');
 Route::get('/contact',[IndexController::class,'contact'])->name('contact');
+Route::post('/contact/mail',[IndexController::class,'send'])->name('contact.send');
 
 
 

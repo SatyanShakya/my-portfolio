@@ -31,6 +31,16 @@ class IndexController extends Controller
         return view('Frontend.projects', compact('projects'));
     }
 
+
+    public function projectDetail($id)
+    {
+        $projects = Project::where('id', $id)->get();
+        if (!$projects) {
+            abort(404);
+        }
+        return view('Frontend.projectdetail', compact('projects'));
+    }
+
     public function resume()
     {
 
@@ -46,12 +56,32 @@ class IndexController extends Controller
         return view('Frontend.contact');
     }
 
-    public function projectDetail($id)
+    public function send(Request $request)
     {
-        $projects = Project::where('id', $id)->get();
-        if (!$projects) {
-            abort(404);
+        // Validate the request data
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'subject' => 'required|string|max:255',
+            'message' => 'required|string',
+        ]);
+
+        try {
+            // Send email
+            Mail::send([], [], function ($message) use ($request) {
+                $message->to('satyanshakya@gmail.com')  // Your email
+                        ->subject($request->subject)    // Subject from form
+                        ->from($request->email, $request->name)
+                        ->setBody('Message: '.$request->message);
+            });
+        } catch (\Exception $e) {
+            // Log the exception message for debugging
+            \Log::error('Mail send failed: '.$e->getMessage());
+            return back()->with('error', 'Failed to send message. Please try again.');
         }
-        return view('Frontend.projectdetail', compact('projects'));
+
+        return back()->with('success', 'Your message has been sent successfully!');
     }
+
+
 }

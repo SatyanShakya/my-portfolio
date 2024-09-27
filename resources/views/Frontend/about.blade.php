@@ -128,10 +128,11 @@
 
 
                                 <div class="progress">
-                                    <span class="skill"><span>{{ $skill->name }}</span> <i class="val" style="font-family: 'Inria Sans', sans-serif; font-size: 12px; ">{{ $skill->rate }}%</i></span>
+                                    <span class="skill"><span>{{ $skill->name }}</span> <i class="val"
+                                            style="font-family: 'Inria Sans', sans-serif; font-size: 12px; ">{{ $skill->rate }}%</i></span>
                                     <div class="progress-bar-wrap">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="{{ $skill->rate }}" aria-valuemin="0"
-                                            aria-valuemax="{{ $skill->rate }}"></div>
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="{{ $skill->rate }}"
+                                            aria-valuemin="0" aria-valuemax="{{ $skill->rate }}"></div>
                                     </div>
                                 </div><!-- End Skills Item -->
 
@@ -139,10 +140,11 @@
                         @else
                             <div class="col-lg-6">
                                 <div class="progress">
-                                    <span class="skill"><span>{{ $skill->name }}</span> <i class="val" style="font-family: 'Inria Sans', sans-serif; font-size: 12px; ">{{ $skill->rate }}%</i></span>
+                                    <span class="skill"><span>{{ $skill->name }}</span> <i class="val"
+                                            style="font-family: 'Inria Sans', sans-serif; font-size: 12px; ">{{ $skill->rate }}%</i></span>
                                     <div class="progress-bar-wrap">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="{{ $skill->rate }}" aria-valuemin="0"
-                                            aria-valuemax="{{ $skill->rate }}"></div>
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="{{ $skill->rate }}"
+                                            aria-valuemin="0" aria-valuemax="{{ $skill->rate }}"></div>
                                     </div>
                                 </div><!-- End Skills Item -->
 
@@ -175,33 +177,31 @@
               },
               "slidesPerView": "auto",
               "pagination": {
-                "el": ".swiper-pagination",
+                "el": ".swiper-pagination",     
                 "type": "bullets",
                 "clickable": true
               }
             }
           </script>
                     <div class="swiper-wrapper">
-                        @foreach ($achievements as $achievement )
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-item">
-                                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img"
-                                    alt="">
-                                <h3>{{ $achievement->name }}</h3>
-                                <div class="stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                        class="bi bi-star-fill"></i>
+                        @foreach ($achievements as $achievement)
+                            <div class="swiper-slide">
+                                <div class="testimonial-item">
+                                    <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img"
+                                        alt="">
+                                    <h3>{{ $achievement->name }}</h3>
+                                    <div class="stars">
+                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                            class="bi bi-star-fill"></i>
+                                    </div>
+                                    <p>
+                                        <i class="bi bi-quote quote-icon-left"></i>
+                                        <span>{{ $achievement->description }}</span>
+                                        <i class="bi bi-quote quote-icon-right"></i>
+                                    </p>
                                 </div>
-                                <p>
-                                    <i class="bi bi-quote quote-icon-left"></i>
-                                    <span>{{ $achievement->description }}</span>
-                                    <i class="bi bi-quote quote-icon-right"></i>
-                                </p>
-                            </div>
-                        </div><!-- End testimonial item -->
-
+                            </div><!-- End testimonial item -->
                         @endforeach
 
 
