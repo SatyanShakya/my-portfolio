@@ -63,7 +63,7 @@
                             <h3>{{ $project->name }}
                             </h3>
                             <p>
-                                {{ $project->description }}
+                                {!! $project->description !!}
                             </p>
 
                         @endforeach

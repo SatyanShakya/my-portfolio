@@ -26,7 +26,16 @@
                             @endif
 
 
-                            <table class="table align-items-center mb-0">
+                            <table class="table align-items-center mb-0" style="table-layout: fixed; width: 100%;">
+                                <colgroup>
+                                    <col style="width: 15%;">
+                                    <col style="width: 10%;">
+                                    <col style="width: 15%;">
+                                    <col style="width: 30%;">
+                                    <col style="width: 20%;">
+
+                                    <col style="width: 10%;">
+                                </colgroup>
                                 <thead>
                                     <tr>
                                         <th
@@ -44,9 +53,7 @@
                                         <th
                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                             Url</th>
-                                        <th
-                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Status</th>
+
                                         <th
                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                             Action</th>
@@ -55,44 +62,48 @@
                                 <tbody>
                                     @foreach ($projects as $project)
                                         <tr>
-                                            <td>
+                                            <td
+                                                style="max-width: 300px; word-wrap: break-word; white-space: normal; overflow: hidden;">
                                                 <p class="text-xs font-weight-bold mb-0">{{ $project->name }}</p>
-
                                             </td>
-                                            <td>
+                                            <td
+                                                style="max-width: 300px; word-wrap: break-word; white-space: normal; overflow: hidden;">
                                                 <p class="text-xs font-weight-bold mb-0">{{ $project->tools }}</p>
                                             </td>
-                                            <td>
+                                            <td
+                                                style="max-width: 300px; word-wrap: break-word; white-space: normal; overflow: hidden;">
                                                 <p class="text-xs font-weight-bold mb-0">{{ $project->summary }}</p>
                                             </td>
-                                            <td>
+                                            <td
+                                                style="max-width: 300px; word-wrap: break-word; white-space: normal; overflow: hidden;">
                                                 <p class="text-xs font-weight-bold mb-0">{{ $project->description }}</p>
                                             </td>
-                                            <td>
+
+                                            <td
+                                                style="max-width: 300px; word-wrap: break-word; white-space: normal; overflow: hidden;">
                                                 <p class="text-xs font-weight-bold mb-0">{{ $project->url }}</p>
                                             </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">{{ $project->status }}</p>
-                                            </td>
-                                            <td class="align-middle">
-                                                <a href="{{ route('projects.edit', $project->id) }}" class=" btn btn-info">
-                                                    Edit
-                                                </a>
 
-                                                <form method="POST" action="{{ route('projects.destroy', $project->id) }}" id="delete-form-{{ $project->id }}">
+                                            <td class="align-middle">
+                                                <a href="{{ route('projects.edit', $project->id) }}"
+                                                    class=" btn btn-info">Edit</a>
+                                                <form method="POST" action="{{ route('projects.destroy', $project->id) }}"
+                                                    id="delete-form-{{ $project->id }}">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="button" class="btn btn-danger"
                                                         onclick="ShowAlert({{ $project->id }})">
                                                         Delete
                                                     </button>
-
                                                 </form>
                                             </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
+
+
+
                         </div>
                     </div>
                 </div>
@@ -103,7 +114,7 @@
 
 @section('js')
     <script>
-        function ShowAlert(projectId){
+        function ShowAlert(projectId) {
             Swal.fire({
                 title: "Delete?",
                 text: "Are you sure you want to delete this ?",

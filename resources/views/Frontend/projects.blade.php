@@ -34,7 +34,7 @@
               <a href="{{ route('project.detail', $project->id) }}" class="stretched-link">
                 <h3>{{ $project->name }}</h3>
               </a>
-              <p>{{ $project->description }}</p>
+              <p>{{ $project->summary }}</p>
             </div>
           </div>
           @endforeach

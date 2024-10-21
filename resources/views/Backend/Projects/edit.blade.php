@@ -57,8 +57,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="form-control-label">Description</label>
-                                                <input class="form-control" type="text" name="description"
-                                                    value="{{ $project->description }}">
+                                               <textarea id="description" name="description">{{ $project->description }}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -98,4 +97,18 @@
             </div>
         </div>
     </body>
+@endsection
+
+
+@section('js')
+<script>
+    $(document).ready(function() {
+        // Ensure that the Summernote content is passed on form submission
+        $('form').on('submit', function() {
+            // Copy Summernote content to the textarea before submitting the form
+            var content = $('#description').summernote('code');
+            $('#description').val(content);
+        });
+    });
+</script>
 @endsection

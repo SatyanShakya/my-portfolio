@@ -21,7 +21,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/apple-icon.png') }}">
     <link rel="icon" type="image/png" href="{{ asset('img/computer.png') }}">
     <title>
-       Portfolio Dashboard
+        Portfolio Dashboard
     </title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -47,7 +47,14 @@
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
     <!-- SweetAlert JS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Include CSS for Summernote -->
+<link href="https://cdn.jsdelivr.net/npm/summernote/dist/summernote-lite.min.css" rel="stylesheet">
 
+<!-- Include jQuery (required for Summernote) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Include Summernote JS -->
+<script src="https://cdn.jsdelivr.net/npm/summernote/dist/summernote-lite.min.js"></script>
 
 </head>
 
@@ -102,7 +109,8 @@
                         href="{{ route('achievements.index') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-app text-info text-sm opacity-10"></i>
+                            <i class="ni ni-trophy text-primary text-sm opacity-10"></i>
+
                         </div>
                         <span class="nav-link-text ms-1">Achievements</span>
                     </a>
@@ -112,7 +120,8 @@
                         href="{{ route('resumes.index') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-app text-info text-sm opacity-10"></i>
+                            <i class="ni ni-single-copy-04 text-warning text-sm opacity-10"></i>
+
                         </div>
                         <span class="nav-link-text ms-1">Resume</span>
                     </a>
@@ -154,6 +163,19 @@
 
     @yield('js')
     <!--   Core JS Files   -->
+
+    {{-- summernote --}}
+    <script>
+        $(document).ready(function() {
+            $('#description').summernote({
+                height: 200, // Set the height of the editor
+                minHeight: 100, // Minimum height
+                maxHeight: 300, // Maximum height
+                focus: true // Set focus to the editor on page load
+            });
+        });
+    </script>
+
     <script src="{{ asset('js/core/popper.min.js') }}"></script>
     <script src="{{ asset('js/core/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/plugins/perfect-scrollbar.min.js') }}"></script>
